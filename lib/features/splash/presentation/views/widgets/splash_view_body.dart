@@ -55,22 +55,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
     });
   }
 
-/*************  ✨ Windsurf Command ⭐  *************/
-  ///
-  /// Creates a controller for slidding text animation.
-  ///
-  /// This method creates a controller for text animation and sets
-  /// the animation duration to 1 second. The animation begins with
-  /// the text at an offset of (0, 2) and ends at an offset of (0, 0),
-  /// effectively creating a slide-in effect from the bottom of the
-  /// screen to the top. The animation is then played forward using
-  /// [_animationController.forward()].
-  ///
-  /// This method is called in the [initState] method of the
-  /// [SplashViewBody] class and is used to create the animation for
-  /// the text "Read Free Books".
-  ///
-  /// *****  3457e2bd-91b4-4af1-9d7a-5b63ccb9c231  ******
   void textSliddingAnimation() {
     _animationController = AnimationController(
       vsync: this,
