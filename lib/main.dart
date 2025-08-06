@@ -2,6 +2,7 @@ import 'package:bookly/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'constants.dart';
 
 void main() {
@@ -22,7 +23,11 @@ class Bookly extends StatelessWidget {
         title: 'Bookly',
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: Constants.kPrimaryColor,
+          textTheme: GoogleFonts.montserratTextTheme(
+            ThemeData.dark().textTheme,
+          ),
         ),
+        themeMode: ThemeMode.system,
         home: child,
       ),
       child: SplashView(),

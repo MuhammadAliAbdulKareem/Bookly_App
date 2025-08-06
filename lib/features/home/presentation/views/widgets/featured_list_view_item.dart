@@ -11,7 +11,7 @@ class FeaturedListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: REdgeInsets.only(
-        left: 16,
+        right: 16,
       ),
       child: Container(
         width: 150.w,
