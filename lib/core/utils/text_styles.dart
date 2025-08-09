@@ -10,13 +10,22 @@ abstract class TextStyles {
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle bookTitle20R600 = GoogleFonts.eczar(
-    fontSize: 18.0.sp,
+  static TextStyle textStyle20 = GoogleFonts.eczar(
+    fontSize: 20.0.sp,
     fontWeight: FontWeight.w600,
   );
+  static TextStyle textStyle30 = GoogleFonts.eczar(
+    fontSize: 30.0.sp,
+    fontWeight: FontWeight.w400,
+  );
 
-  static TextStyle bookAuthor14R400 = GoogleFonts.eczar(
+  static TextStyle textStyle14 = GoogleFonts.eczar(
     fontSize: 14.0,
+    fontWeight: FontWeight.w400,
+    color: Colors.white70,
+  );
+  static TextStyle textStyle16 = GoogleFonts.eczar(
+    fontSize: 16.0,
     fontWeight: FontWeight.w400,
     color: Colors.white70,
   );
