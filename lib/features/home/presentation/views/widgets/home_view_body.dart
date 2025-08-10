@@ -12,25 +12,34 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          CustomAppBar(),
-          FeaturedBooksListView(),
-          SizedBox(
-            height: 40.0.h,
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              CustomAppBar(),
+              FeaturedBooksListView(),
+              SizedBox(
+                height: 40.0.h,
+              ),
+              Padding(
+                padding: REdgeInsets.symmetric(horizontal: 30.0),
+                child: Text(
+                  'Best Sellers',
+                  style: TextStyles.titleMedium,
+                ),
+              ),
+              SizedBox(
+                height: 15.0.h,
+              ),
+            ],
           ),
-          Text(
-            'Best Sellers',
-            style: TextStyles.titleMedium,
-          ),
-          Expanded(
-            child: BestSellersBooksFeature(),
-          ),
-        ],
-      ),
+        ),
+        SliverFillRemaining(
+          child: BestSellersBooksFeature(),
+        ),
+      ],
     );
   }
 }

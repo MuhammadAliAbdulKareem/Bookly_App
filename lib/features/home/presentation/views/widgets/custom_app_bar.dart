@@ -15,6 +15,8 @@ class CustomAppBar extends StatelessWidget {
       padding: REdgeInsets.only(
         top: 32.0,
         bottom: 16.0,
+        right: 30.0,
+        left: 30.0,
       ),
       child: Row(
         children: [

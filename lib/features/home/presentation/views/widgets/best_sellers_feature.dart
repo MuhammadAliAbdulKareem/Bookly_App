@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'best_sellers_item.dart';
 
@@ -7,10 +8,13 @@ class BestSellersBooksFeature extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: const BouncingScrollPhysics(),
-      itemCount: 10,
-      itemBuilder: (context, index) => BestSellersBooksItem(),
+    return Expanded(
+      child: ListView.builder(
+        padding: REdgeInsets.symmetric(horizontal: 30.0),
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: 10,
+        itemBuilder: (context, index) => BestSellersBooksItem(),
+      ),
     );
   }
 }
