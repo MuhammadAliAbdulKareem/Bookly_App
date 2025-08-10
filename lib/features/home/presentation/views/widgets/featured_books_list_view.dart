@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'featured_list_view_item.dart';
+
+import 'custom_book_item.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({super.key});
@@ -13,7 +14,12 @@ class FeaturedBooksListView extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: 10,
-        itemBuilder: (context, index) => FeaturedListViewItem(),
+        itemBuilder: (context, index) => Padding(
+          padding: REdgeInsets.only(
+            right: 16,
+          ),
+          child: CustomBookItem(),
+        ),
       ),
     );
   }
