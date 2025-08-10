@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/assets_manager.dart';
 import '../../../../../core/utils/text_styles.dart';
-import '../book_details_view.dart';
 import 'book_rating.dart';
 
 class BestSellersBooksItem extends StatelessWidget {
@@ -15,11 +16,7 @@ class BestSellersBooksItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const BookDetailsView(),
-            ));
+        context.go(AppRouter.kBookDetailsView);
       },
       child: Padding(
         padding: REdgeInsets.symmetric(
