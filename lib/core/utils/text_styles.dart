@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 abstract class TextStyles {
   // static const String fontFamily = 'inter';
 
-  static TextStyle titleMedium = TextStyle(
+  static TextStyle textStyle18 = TextStyle(
     fontSize: 18.0.sp,
     fontWeight: FontWeight.bold,
   );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../../core/utils/text_styles.dart';
 import 'best_sellers_feature.dart';
 import 'custom_app_bar.dart';
@@ -27,7 +28,7 @@ class HomeViewBody extends StatelessWidget {
                 padding: REdgeInsets.symmetric(horizontal: 30.0),
                 child: Text(
                   'Best Sellers',
-                  style: TextStyles.titleMedium,
+                  style: TextStyles.textStyle18,
                 ),
               ),
               SizedBox(

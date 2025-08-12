@@ -3,13 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'custom_book_item.dart';
 
-class FeaturedBooksListView extends StatelessWidget {
-  const FeaturedBooksListView({super.key});
+class SimilarBooksListView extends StatelessWidget {
+  const SimilarBooksListView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 224.h,
+      height: 128.h,
       child: ListView.builder(
         padding: EdgeInsets.zero,
         physics: const BouncingScrollPhysics(),
@@ -17,10 +17,10 @@ class FeaturedBooksListView extends StatelessWidget {
         itemCount: 10,
         itemBuilder: (context, index) => Padding(
           padding: REdgeInsets.only(
-            right: 16.0,
+            right: 10.0,
           ),
           child: CustomBookItem(
-            width: 150,
+            width: 78.0,
           ),
         ),
       ),
