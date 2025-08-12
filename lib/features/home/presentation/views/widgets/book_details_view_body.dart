@@ -5,6 +5,8 @@ import 'package:bookly/features/home/presentation/views/widgets/custom_book_item
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'books_action.dart';
+
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});
 
@@ -38,6 +40,24 @@ class BookDetailsViewBody extends StatelessWidget {
           height: 4.h,
         ),
         BookRating(),
+        SizedBox(
+          height: 40.h,
+        ),
+        BooksAction(),
+        SizedBox(
+          height: 35.h,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'You can also like',
+              textAlign: TextAlign.center,
+              style: TextStyles.textStyle16,
+            ),
+          ),
+        )
       ],
     );
   }
