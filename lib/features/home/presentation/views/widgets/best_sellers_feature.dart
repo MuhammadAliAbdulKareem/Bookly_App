@@ -8,13 +8,11 @@ class BestSellersBooksFeature extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        padding: REdgeInsets.symmetric(horizontal: 30.0),
-        physics: const NeverScrollableScrollPhysics(),
-        itemCount: 10,
-        itemBuilder: (context, index) => BooksListViewItem(),
-      ),
+    return ListView.builder(
+      padding: REdgeInsets.symmetric(horizontal: 30.0),
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: 10,
+      itemBuilder: (context, index) => BooksListViewItem(),
     );
   }
 }

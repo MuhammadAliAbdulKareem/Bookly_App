@@ -38,6 +38,7 @@ class HomeViewBody extends StatelessWidget {
           ),
         ),
         SliverFillRemaining(
+          hasScrollBody: true,
           child: BestSellersBooksFeature(),
         ),
       ],
