@@ -13,7 +13,7 @@ class BestSellersBooksFeature extends StatelessWidget {
         padding: REdgeInsets.symmetric(horizontal: 30.0),
         physics: const NeverScrollableScrollPhysics(),
         itemCount: 10,
-        itemBuilder: (context, index) => BestSellersBooksItem(),
+        itemBuilder: (context, index) => BooksListViewItem(),
       ),
     );
   }

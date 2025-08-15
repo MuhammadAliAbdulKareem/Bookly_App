@@ -7,8 +7,8 @@ import '../../../../../core/utils/assets_manager.dart';
 import '../../../../../core/utils/text_styles.dart';
 import 'book_rating.dart';
 
-class BestSellersBooksItem extends StatelessWidget {
-  const BestSellersBooksItem({
+class BooksListViewItem extends StatelessWidget {
+  const BooksListViewItem({
     super.key,
   });
 
@@ -16,11 +16,13 @@ class BestSellersBooksItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.go(AppRouter.kBookDetailsView);
+        GoRouter.of(context).push(
+          AppRouter.kBookDetailsView,
+        );
       },
       child: Padding(
         padding: REdgeInsets.symmetric(
-          vertical: 10.0.h,
+          vertical: 7.0.h,
         ),
         child: Row(
           children: [

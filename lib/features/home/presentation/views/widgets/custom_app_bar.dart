@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/assets_manager.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -32,7 +34,9 @@ class CustomAppBar extends StatelessWidget {
               size: 20.sp,
             ),
             onPressed: () {
-              // Implement search functionality
+              GoRouter.of(context).push(
+                AppRouter.kSearchView,
+              );
             },
           ),
         ],
