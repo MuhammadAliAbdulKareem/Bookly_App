@@ -21,13 +21,15 @@ class FeaturedBooksListView extends StatelessWidget {
               padding: EdgeInsets.zero,
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: state.featuredBooks.length,
               itemBuilder: (context, index) => Padding(
                 padding: REdgeInsets.only(
                   right: 16.0,
                 ),
                 child: CustomBookItem(
                   width: 150,
+                  imageUrl: state
+                      .featuredBooks[index].volumeInfo.imageLinks.thumbnail,
                 ),
               ),
             ),

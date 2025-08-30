@@ -21,6 +21,7 @@ class SimilarBooksListView extends StatelessWidget {
           ),
           child: CustomBookItem(
             width: 78.0,
+            imageUrl: 'https://picsum.photos/200/300',
           ),
         ),
       ),

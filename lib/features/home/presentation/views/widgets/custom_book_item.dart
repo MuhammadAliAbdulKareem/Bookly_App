@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/utils/assets_manager.dart';
-
 class CustomBookItem extends StatelessWidget {
-  const CustomBookItem({super.key, required this.width});
+  const CustomBookItem(
+      {super.key, required this.width, required this.imageUrl});
   final double width;
-
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,7 +14,7 @@ class CustomBookItem extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.0.r),
         image: DecorationImage(
-          image: AssetImage(AssetsManager.testImage),
+          image: NetworkImage(imageUrl),
           fit: BoxFit.fill,
         ),
       ),
