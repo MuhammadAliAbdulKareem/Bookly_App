@@ -16,7 +16,7 @@ class FeaturedBooksListView extends StatelessWidget {
       builder: (context, state) {
         if (state is FeaturedBooksSuccess) {
           return SizedBox(
-            height: 224.h,
+            height: 200.h,
             child: ListView.builder(
               padding: EdgeInsets.zero,
               physics: const BouncingScrollPhysics(),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../home/presentation/views/widgets/best_sellers_item.dart';
 import 'custom_search_text_field.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -41,7 +40,8 @@ class SearchResultsSection extends StatelessWidget {
             padding: EdgeInsets.zero,
             physics: const BouncingScrollPhysics(),
             itemCount: 10,
-            itemBuilder: (context, index) => BooksListViewItem(),
+            itemBuilder: (context, index) =>
+                Center(child: Text('Result Item $index')),
           ),
         ),
       ],

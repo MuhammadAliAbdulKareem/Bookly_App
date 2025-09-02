@@ -1,10 +1,15 @@
+import 'package:bookly/core/widgets/custom_error_widget.dart';
+import 'package:bookly/core/widgets/custom_loading_indicator.dart';
+import 'package:bookly/features/home/presentation/view_model(manager)/newest_books_cubit/newest_books_cubit.dart';
+import 'package:bookly/features/home/presentation/view_model(manager)/newest_books_cubit/newest_books_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/text_styles.dart';
-import 'best_sellers_feature.dart';
 import 'custom_app_bar.dart';
 import 'featured_books_list_view.dart';
+import 'newest_books_feature.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({
@@ -27,7 +32,7 @@ class HomeViewBody extends StatelessWidget {
               Padding(
                 padding: REdgeInsets.symmetric(horizontal: 30.0),
                 child: Text(
-                  'Best Sellers',
+                  'Newest Books',
                   style: TextStyles.textStyle18,
                 ),
               ),
@@ -37,9 +42,24 @@ class HomeViewBody extends StatelessWidget {
             ],
           ),
         ),
-        SliverFillRemaining(
-          hasScrollBody: true,
-          child: BestSellersBooksFeature(),
+        BlocBuilder<NewestBooksCubit, NewestBooksState>(
+          builder: (context, state) {
+            if (state is NewestBooksSuccess) {
+              return NewestBooksFeature(
+                newestBooks: state.newestBooks,
+              );
+            } else if (state is NewestBooksFailure) {
+              return SliverToBoxAdapter(
+                child: CustomErrorWidget(
+                  errMessage: state.errMessage,
+                ),
+              );
+            } else {
+              return const SliverToBoxAdapter(
+                child: CustomLoadingIndicator(),
+              );
+            }
+          },
         ),
       ],
     );

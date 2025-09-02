@@ -6,7 +6,10 @@ import '../../../../../core/utils/text_styles.dart';
 class BookRating extends StatelessWidget {
   const BookRating({
     super.key,
+    required this.rating,
   });
+
+  final int rating;
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +24,11 @@ class BookRating extends StatelessWidget {
             size: 16.0.sp,
           ),
           Text(
-            '4.5',
+            '0.0',
             style: TextStyles.textStyle16,
           ),
           Text(
-            '(2390)',
+            '($rating)',
             style: TextStyles.textStyle14,
           )
         ],

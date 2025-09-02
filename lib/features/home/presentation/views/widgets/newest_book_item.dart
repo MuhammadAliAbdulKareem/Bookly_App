@@ -1,17 +1,19 @@
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_router.dart';
-import '../../../../../core/utils/assets_manager.dart';
 import '../../../../../core/utils/text_styles.dart';
 import 'book_rating.dart';
 
 class BooksListViewItem extends StatelessWidget {
   const BooksListViewItem({
     super.key,
+    required this.bookModel,
   });
-
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -23,18 +25,15 @@ class BooksListViewItem extends StatelessWidget {
       child: Padding(
         padding: REdgeInsets.symmetric(
           vertical: 7.0.h,
+          horizontal: 30.0.w,
         ),
         child: Row(
           children: [
-            Container(
-              width: 85.0.w,
+            SizedBox(
               height: 120.h,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0.r),
-                image: DecorationImage(
-                  image: AssetImage(AssetsManager.testImage),
-                  fit: BoxFit.fill,
-                ),
+              child: CustomBookItem(
+                width: 85.w,
+                imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
               ),
             ),
             SizedBox(
@@ -46,26 +45,28 @@ class BooksListViewItem extends StatelessWidget {
                 SizedBox(
                   width: 220.0.w,
                   child: Text(
-                    'Harry Potter and the Goblet of Fire',
+                    bookModel.volumeInfo.title!,
                     style: TextStyles.textStyle20,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                   ),
                 ),
                 Text(
-                  'J.K. Rowling',
+                  bookModel.volumeInfo.authors![0],
                   style: TextStyles.textStyle14,
                 ),
                 Row(
                   children: [
                     Text(
-                      '19.99 €',
+                      'Free',
                       style: TextStyles.textStyle20.copyWith(
                         fontSize: 16.0.sp,
                       ),
                     ),
                     SizedBox(width: 40.0.w),
-                    BookRating(),
+                    BookRating(
+                      rating: bookModel.volumeInfo.pageCount!,
+                    )
                   ],
                 ),
               ],
