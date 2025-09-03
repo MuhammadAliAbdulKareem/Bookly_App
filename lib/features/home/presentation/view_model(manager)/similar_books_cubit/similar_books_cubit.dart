@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../data/models/repos/home_repo.dart';
 import 'similar_books_state.dart';
 
-class NewestBooksCubit extends Cubit<SimilarBooksState> {
-  NewestBooksCubit(this.homeRepo) : super(SimilarBooksInitial());
+class SimilarBooksCubit extends Cubit<SimilarBooksState> {
+  SimilarBooksCubit(this.homeRepo) : super(SimilarBooksInitial());
 
   final HomeRepo homeRepo;
 

@@ -39,19 +39,28 @@ class FeaturedBooksListView extends StatelessWidget {
         } else {
           return SizedBox(
             height: 200.h,
-            child: Skeletonizer(
-              enabled: true,
-              child: ListView.builder(
-                itemCount: 6,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w),
-                  child: Container(
-                    width: 150.w,
-                    height: 200.h,
-                    decoration: BoxDecoration(
-                      color: Colors.grey[700],
-                      borderRadius: BorderRadius.circular(12.r),
+            child: SkeletonizerConfig(
+              data: const SkeletonizerConfigData(
+                effect: ShimmerEffect(
+                  duration: Duration(milliseconds: 1000),
+                  highlightColor: Colors.grey,
+                  baseColor: Colors.black12,
+                ),
+              ),
+              child: Skeletonizer(
+                enabled: true,
+                child: ListView.builder(
+                  itemCount: 6,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    child: Container(
+                      width: 150.w,
+                      height: 200.h,
+                      decoration: BoxDecoration(
+                        // color: Colors.grey[700],
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
                     ),
                   ),
                 ),
