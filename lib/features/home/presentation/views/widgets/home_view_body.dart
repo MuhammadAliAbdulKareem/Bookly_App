@@ -1,7 +1,7 @@
 import 'package:bookly/core/widgets/custom_error_widget.dart';
+import 'package:bookly/core/widgets/custom_skeleton_book_item.dart';
 import 'package:bookly/features/home/presentation/view_model(manager)/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly/features/home/presentation/view_model(manager)/newest_books_cubit/newest_books_state.dart';
-import 'package:bookly/features/home/presentation/views/widgets/skeleton_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -58,7 +58,7 @@ class HomeViewBody extends StatelessWidget {
               return SliverList(
                   delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  return const SkeletonBookItem();
+                  return const CustomSkeletonBookItem();
                 },
                 childCount: 6,
               ));

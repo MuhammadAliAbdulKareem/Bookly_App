@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-class SkeletonBookItem extends StatelessWidget {
-  const SkeletonBookItem({super.key});
+class CustomSkeletonBookItem extends StatelessWidget {
+  const CustomSkeletonBookItem({super.key});
 
   @override
   Widget build(BuildContext context) {

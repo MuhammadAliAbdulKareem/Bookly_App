@@ -3,9 +3,8 @@ import 'package:bookly/features/home/presentation/view_model(manager)/featured_b
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../../core/utils/assets_manager.dart';
+import '../../../../../core/widgets/custom_horizontal_skeleton_list.dart';
 import 'custom_book_item.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
@@ -38,38 +37,7 @@ class FeaturedBooksListView extends StatelessWidget {
         } else if (state is FeaturedBooksFailure) {
           return CustomErrorWidget(errMessage: state.errMessage);
         } else {
-          // Loading state with Skeletonizer
-          return SizedBox(
-            height: 200.h,
-            child: Skeletonizer(
-              enabled: true,
-              effect: const ShimmerEffect(
-                duration: Duration(milliseconds: 1500),
-                baseColor: Color(0xFF2A2A2A), // Dark gray base
-                highlightColor: Color(0xFF404040),
-              ),
-              child: ListView.builder(
-                padding: EdgeInsets.zero,
-                physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                itemCount: 6,
-                itemBuilder: (context, index) => Padding(
-                  padding: REdgeInsets.only(
-                    right: 16.0,
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12.0.r),
-                    child: Image.asset(
-                      AssetsManager.testImage,
-                      width: 150.w,
-                      height: 200.h,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          );
+          return CustomHorizontalSkeletonList();
         }
       },
     );
