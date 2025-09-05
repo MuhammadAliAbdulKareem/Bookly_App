@@ -37,7 +37,10 @@ class FeaturedBooksListView extends StatelessWidget {
         } else if (state is FeaturedBooksFailure) {
           return CustomErrorWidget(errMessage: state.errMessage);
         } else {
-          return CustomHorizontalSkeletonList();
+          return CustomHorizontalSkeletonList(
+            itemHeight: 200,
+            itemWidth: 150,
+          );
         }
       },
     );

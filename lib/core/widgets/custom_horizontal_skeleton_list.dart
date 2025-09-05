@@ -5,12 +5,14 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../utils/assets_manager.dart';
 
 class CustomHorizontalSkeletonList extends StatelessWidget {
-  const CustomHorizontalSkeletonList({super.key});
-
+  const CustomHorizontalSkeletonList(
+      {super.key, required this.itemHeight, required this.itemWidth});
+  final double itemHeight;
+  final double itemWidth;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200.h,
+      height: itemHeight.h,
       child: Skeletonizer(
         enabled: true,
         effect: const ShimmerEffect(
@@ -31,8 +33,8 @@ class CustomHorizontalSkeletonList extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.0.r),
               child: Image.asset(
                 AssetsManager.testImage,
-                width: 150.w,
-                height: 200.h,
+                width: itemWidth.w,
+                height: itemHeight.h,
                 fit: BoxFit.fill,
               ),
             ),
