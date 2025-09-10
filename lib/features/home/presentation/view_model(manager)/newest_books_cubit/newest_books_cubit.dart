@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 
-import '../../../data/models/repos/home_repo.dart';
+import '../../../domain/repos/home_repo.dart';
 import 'newest_books_state.dart';
 
 class NewestBooksCubit extends Cubit<NewestBooksState> {
