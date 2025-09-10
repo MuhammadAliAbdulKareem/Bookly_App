@@ -14,19 +14,26 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   HomeRemoteDataSourceImpl(this.apiServices);
   @override
   Future<List<BookEntity>> fetchNewestBooks() async {
-    //   try {
+    var data = await apiServices
+        .get('volumes?Filtering=free-ebooks&q=computer science&Sorting=newest');
+    List<BookEntity> books = getBooksMethod(data);
+    return books;
+  }
+
+  @override
+  Future<List<BookEntity>> fetchFeaturedBooks() async {
     var data = await apiServices
         .get('volumes?Filtering=free-ebooks&q=subject:programming');
     List<BookEntity> books = getBooksMethod(data);
     return books;
-    //   return right(books);
-    //   } catch (errMessage) {
-    //     if (errMessage is DioException) {
-    //       return left(ServerFailure.fromDioError(errMessage));
-    //     }
-    //     return left(ServerFailure(errMessage.toString()));
-    //   }
-    // }
+  }
+
+  @override
+  Future<List<BookEntity>> fetchSimilarBooks({required String category}) async {
+    var data = await apiServices
+        .get('volumes?Filtering=free-ebooks&q=$category&sorting=relevance');
+    List<BookEntity> books = getBooksMethod(data);
+    return books;
   }
 
   List<BookEntity> getBooksMethod(Map<String, dynamic> data) {
@@ -35,17 +42,5 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
       books.add(BookModel.fromJson(bookMap));
     }
     return books;
-  }
-
-  @override
-  Future<List<BookEntity>> fetchFeaturedBooks() {
-    // TODO: implement fetchFeaturedBooks
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<List<BookEntity>> fetchSimilarBooks({required String category}) {
-    // TODO: implement fetchSimilarBooks
-    throw UnimplementedError();
   }
 }
