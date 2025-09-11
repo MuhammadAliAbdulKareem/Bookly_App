@@ -1,12 +1,12 @@
 import 'package:bookly/features/home/domain/entities/book_entity';
-import 'package:equatable/equatable.dart';
 
+import '../../../domain/entities/book_entity.dart';
 import 'access_info.dart';
 import 'sale_info.dart';
 import 'search_info.dart';
 import 'volume_info.dart';
 
-class BookModel extends BookEntity with EquatableMixin {
+class BookModel extends BookEntity {
   final String? kind;
   final String? id;
   final String? etag;
@@ -26,6 +26,7 @@ class BookModel extends BookEntity with EquatableMixin {
     this.accessInfo,
     this.searchInfo,
   }) : super(
+          bookId: id!,
           title: volumeInfo.title!,
           author: volumeInfo.authors![0],
           description: volumeInfo.description!,
