@@ -1,15 +1,10 @@
-import 'package:bookly/core/widgets/custom_error_widget.dart';
-import 'package:bookly/core/widgets/custom_skeleton_book_item.dart';
-import 'package:bookly/features/home/presentation/view_model_manager/newest_books_cubit/newest_books_cubit.dart';
-import 'package:bookly/features/home/presentation/view_model_manager/newest_books_cubit/newest_books_state.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/text_styles.dart';
 import 'custom_app_bar.dart';
 import 'featured_books_list_view.dart';
-import 'newest_books_feature.dart';
+import 'newest_books_feature_bloc_builder.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({
@@ -42,29 +37,7 @@ class HomeViewBody extends StatelessWidget {
             ],
           ),
         ),
-        BlocBuilder<NewestBooksCubit, NewestBooksState>(
-          builder: (context, state) {
-            if (state is NewestBooksSuccess) {
-              return NewestBooksFeature(
-                newestBooks: state.newestBooks,
-              );
-            } else if (state is NewestBooksFailure) {
-              return SliverToBoxAdapter(
-                child: CustomErrorWidget(
-                  errMessage: state.errMessage,
-                ),
-              );
-            } else {
-              return SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  return const CustomSkeletonBookItem();
-                },
-                childCount: 6,
-              ));
-            }
-          },
-        ),
+        NewestBooksFeatureBlocBuilder(),
       ],
     );
   }
