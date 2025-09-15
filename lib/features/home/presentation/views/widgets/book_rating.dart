@@ -24,7 +24,7 @@ class BookRating extends StatelessWidget {
             size: 16.0.sp,
           ),
           Text(
-            '0.0',
+            rating.toStringAsFixed(1),
             style: TextStyles.textStyle16,
           ),
           Text(
