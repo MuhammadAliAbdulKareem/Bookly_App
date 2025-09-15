@@ -1,5 +1,3 @@
-import 'package:bookly/features/home/domain/entities/book_entity';
-
 import '../../../domain/entities/book_entity.dart';
 import 'access_info.dart';
 import 'sale_info.dart';
@@ -30,8 +28,9 @@ class BookModel extends BookEntity {
           title: volumeInfo.title!,
           author: volumeInfo.authors![0],
           description: volumeInfo.description!,
-          image: volumeInfo.imageLinks.thumbnail,
+          imageUrl: volumeInfo.imageLinks.thumbnail,
           category: volumeInfo.categories![0],
+          rating: volumeInfo.averageRating ?? 0,
         );
 
   factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
@@ -63,6 +62,9 @@ class BookModel extends BookEntity {
         'searchInfo': searchInfo?.toJson(),
       };
 
+  // Convenience getter for the book rating
+  num get ratingValue => volumeInfo.averageRating ?? 0;
+
   @override
   List<Object?> get props {
     return [
@@ -74,6 +76,7 @@ class BookModel extends BookEntity {
       saleInfo,
       accessInfo,
       searchInfo,
+      ratingValue,
     ];
   }
 }

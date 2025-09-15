@@ -9,7 +9,7 @@ class BookRating extends StatelessWidget {
     required this.rating,
   });
 
-  final int rating;
+  final num rating;
 
   @override
   Widget build(BuildContext context) {

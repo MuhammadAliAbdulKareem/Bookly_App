@@ -1,17 +1,17 @@
 import 'package:bloc/bloc.dart';
+import 'package:bookly/features/home/domain/use_cases/fetch_newest_books_use_case.dart';
 
-import '../../../domain/repos/home_repo.dart';
 import 'newest_books_state.dart';
 
 class NewestBooksCubit extends Cubit<NewestBooksState> {
-  NewestBooksCubit(this.homeRepo) : super(NewestBooksInitial());
+  NewestBooksCubit(this.fetchNewestBooksUseCase) : super(NewestBooksInitial());
 
-  final HomeRepo homeRepo;
+  final FetchNewestBooksUseCase fetchNewestBooksUseCase;
 
   Future<void> fetchNewestBooks() async {
     emit(NewestBooksLoading());
 
-    var result = await homeRepo.fetchNewestBooks();
+    var result = await fetchNewestBooksUseCase.execute();
     result.fold(
       (failure) => emit(NewestBooksFailure(failure.errMessage)),
       (books) => emit(NewestBooksSuccess(books)),

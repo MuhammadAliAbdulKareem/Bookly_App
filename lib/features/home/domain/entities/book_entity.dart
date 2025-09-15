@@ -13,16 +13,19 @@ class BookEntity {
   @HiveField(3)
   final String description;
   @HiveField(4)
-  final String image;
+  final String imageUrl;
   @HiveField(5)
   final String category;
+  @HiveField(6)
+  final num rating;
 
   BookEntity({
     required this.bookId,
     required this.title,
     required this.author,
     required this.description,
-    required this.image,
+    required this.imageUrl,
     required this.category,
+    required this.rating,
   });
 }

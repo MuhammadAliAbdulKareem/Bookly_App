@@ -1,4 +1,3 @@
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/text_styles.dart';
+import '../../../domain/entities/book_entity.dart';
 import 'book_rating.dart';
 
 class BooksListViewItem extends StatelessWidget {
@@ -13,7 +13,7 @@ class BooksListViewItem extends StatelessWidget {
     super.key,
     required this.bookModel,
   });
-  final BookModel bookModel;
+  final BookEntity bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -34,7 +34,7 @@ class BooksListViewItem extends StatelessWidget {
               height: 120.h,
               child: CustomBookItem(
                 width: 85.w,
-                imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
+                imageUrl: bookModel.imageUrl,
               ),
             ),
             SizedBox(
@@ -46,14 +46,14 @@ class BooksListViewItem extends StatelessWidget {
                 SizedBox(
                   width: 220.0.w,
                   child: Text(
-                    bookModel.volumeInfo.title!,
+                    bookModel.title,
                     style: TextStyles.textStyle20,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                   ),
                 ),
                 Text(
-                  bookModel.volumeInfo.authors![0],
+                  bookModel.author,
                   style: TextStyles.textStyle14,
                 ),
                 Row(
@@ -66,7 +66,7 @@ class BooksListViewItem extends StatelessWidget {
                     ),
                     SizedBox(width: 40.0.w),
                     BookRating(
-                      rating: bookModel.volumeInfo.pageCount!,
+                      rating: bookModel.rating,
                     )
                   ],
                 ),

@@ -5,7 +5,7 @@ import '../../../../core/errors/failure.dart';
 import '../../../../core/use_case/use_case.dart';
 import '../repos/home_repo.dart';
 
-class FetchSimilarBooksUseCase extends UseCase<List<BookEntity>, String> {
+class FetchSimilarBooksUseCase extends UseCase<List<BookEntity>, String?> {
   final HomeRepo homeRepo;
 
   FetchSimilarBooksUseCase(this.homeRepo);
@@ -29,7 +29,11 @@ class FetchSimilarBooksUseCase extends UseCase<List<BookEntity>, String> {
   // }
 
   @override
-  Future<Either<Failure, List<BookEntity>>> execute([String? category]) async {
+  Future<Either<Failure, List<BookEntity>>> execute({String? category}) async {
     return await homeRepo.fetchSimilarBooks(category: category!);
   }
+  // @override
+  // Future<Either<Failure, List<BookEntity>>> execute({String? category}) async {
+  //   return await homeRepo.fetchSimilarBooks(category: category!);
+  // }
 }

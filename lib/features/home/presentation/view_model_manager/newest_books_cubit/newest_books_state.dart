@@ -1,6 +1,5 @@
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:equatable/equatable.dart';
-
-import '../../../data/models/book_model/book_model.dart';
 
 sealed class NewestBooksState extends Equatable {
   const NewestBooksState();
@@ -14,7 +13,7 @@ final class NewestBooksInitial extends NewestBooksState {}
 final class NewestBooksLoading extends NewestBooksState {}
 
 final class NewestBooksSuccess extends NewestBooksState {
-  final List<BookModel> newestBooks;
+  final List<BookEntity> newestBooks;
   const NewestBooksSuccess(this.newestBooks);
 }
 
