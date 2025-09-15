@@ -18,7 +18,8 @@ class BooksDetailsSection extends StatelessWidget {
           height: 200.h,
           child: CustomBookItem(
             width: 150.0,
-            imageUrl: bookModel.volumeInfo.imageLinks.thumbnail ?? '',
+            imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ??
+                'https://via.placeholder.com/150x200.png?text=No+Image',
           ),
         ),
         SizedBox(

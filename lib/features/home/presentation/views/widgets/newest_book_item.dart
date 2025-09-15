@@ -46,14 +46,14 @@ class BooksListViewItem extends StatelessWidget {
                 SizedBox(
                   width: 220.0.w,
                   child: Text(
-                    bookModel.title,
+                    bookModel.title ?? "Not Available",
                     style: TextStyles.textStyle20,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                   ),
                 ),
                 Text(
-                  bookModel.author,
+                  bookModel.author ?? "Not Available",
                   style: TextStyles.textStyle14,
                 ),
                 Row(

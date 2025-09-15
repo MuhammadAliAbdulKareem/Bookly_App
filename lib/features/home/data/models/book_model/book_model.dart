@@ -24,12 +24,17 @@ class BookModel extends BookEntity {
     this.accessInfo,
     this.searchInfo,
   }) : super(
-          bookId: id!,
-          title: volumeInfo.title!,
-          author: volumeInfo.authors![0],
-          description: volumeInfo.description!,
-          imageUrl: volumeInfo.imageLinks.thumbnail,
-          category: volumeInfo.categories![0],
+          bookId: id ?? 'unknown_id',
+          title: volumeInfo.title ?? 'Unknown Title',
+          author: volumeInfo.authors?.isNotEmpty == true
+              ? volumeInfo.authors![0]
+              : 'Unknown Author',
+          description: volumeInfo.description ?? 'No description available',
+          imageUrl: volumeInfo.imageLinks?.thumbnail ??
+              'https://via.placeholder.com/150',
+          category: volumeInfo.categories?.isNotEmpty == true
+              ? volumeInfo.categories![0]
+              : 'General',
           rating: volumeInfo.averageRating ?? 0,
         );
 
