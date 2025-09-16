@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/text_styles.dart';
-import 'similar_books_list_view.dart';
+import 'similar_books_bloc_builder.dart';
 
 class SimilarBooksListViewSection extends StatelessWidget {
   const SimilarBooksListViewSection({super.key});
@@ -25,7 +25,7 @@ class SimilarBooksListViewSection extends StatelessWidget {
           SizedBox(
             height: 16.h,
           ),
-          SimilarBooksListView(),
+          SimilarBooksBlocBuilder(),
         ],
       ),
     );
