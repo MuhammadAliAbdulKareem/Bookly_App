@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/text_styles.dart';
 import 'custom_app_bar.dart';
-import 'featured_books_bloc_builder.dart';
+import 'featured_books_bloc_consumer.dart';
 import 'newest_books_feature_bloc_builder.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -20,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               CustomAppBar(),
-              FeaturedBooksBlocBuilder(),
+              FeaturedBooksBlocConsumer(),
               SizedBox(
                 height: 40.0.h,
               ),
